@@ -58,7 +58,7 @@
 
         <mat-divider></mat-divider>
 
-        <a id="push-bottom" mat-list-item>
+        <a id="push-bottom" routerLink="/about" mat-list-item>
           <mat-icon mat-list-icon> info_outline </mat-icon>
           <p mat-line>About</p>
         </a>
@@ -67,7 +67,7 @@
 
     <mat-sidenav-content class="sidenav-content">
       <!-- Main content -->
-
+      <router-outlet></router-outlet>
       <!-- ------------ -->
 
       <div class="bottom-spacer"></div>
