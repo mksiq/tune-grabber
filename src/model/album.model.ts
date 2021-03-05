@@ -9,8 +9,12 @@ export class Album {
   images: Array<Image>;
   name: string;
   release_date: string;
-  total_tracks: Number;
+  total_tracks: number;
   uri: string;
+  label?: string;
+  popularity?: number;
+  copyrights?: Array<{ text: string; type: string }>;
+  tracks?: { items: Array<{ track_number: number; name: string; duration_ms: number }> };
   constructor(
     type: string,
     artists: Array<Artist>,
@@ -19,7 +23,7 @@ export class Album {
     images: Array<Image>,
     name: string,
     release: string,
-    tracks: Number,
+    tracks: number,
     uri: string
   ) {
     this.type = type;
@@ -32,6 +36,4 @@ export class Album {
     this.uri = uri;
     this.images = images;
   }
-
-  
 }
