@@ -137,3 +137,14 @@ mat-sidenav {
     width: 1170px;
   }
 }
+
+.text-wrapper {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.mat-card-header-text {
+  padding: 0 !important; 
+  margin: 0 !important;
+}

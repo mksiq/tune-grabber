@@ -30,4 +30,12 @@ export class NewReleasesComponent implements OnInit {
       converted.getFullYear()
     );
   }
+
+  cropTitle(title: string, size: number): string {
+    if (title.length > size) {
+      title = title.substring(0, size - 3);
+      title += '...';
+    }
+    return title;
+  }
 }
