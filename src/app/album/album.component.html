@@ -8,7 +8,7 @@
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
       <div fxflex>
         <img
-          src="{{ album.images[1].url }}"
+          [src]="album.images[1].url"
           alt="album cover"
           [style.margin]="'10px'"
           [style.max-width]="'90%'"
@@ -25,10 +25,10 @@
             aria-label="Artist selection"
             *ngFor="let artist of album.artists"
           >
-          <a href="/artist">
-            <mat-chip>{{ artist.name }}</mat-chip>
-          </a>
-        </mat-chip-list>
+            <a href="/artist">
+              <mat-chip>{{ artist.name }}</mat-chip>
+            </a>
+          </mat-chip-list>
           <br />
           <div *ngFor="let copyright of album.copyrights">
             {{ copyright.text }}
@@ -40,7 +40,6 @@
   <br /><br />
   <h2>Track Listing</h2>
   <mat-list *ngIf="album && album.tracks">
-    <!-- Single "Responsive" Material List Item-->
     <mat-list-item
       *ngFor="let track of album.tracks.items"
       style="margin-bottom: 3px"
@@ -55,6 +54,5 @@
         </mat-card>
       </div>
     </mat-list-item>
-    <!-- -->
   </mat-list>
 </span>

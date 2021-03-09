@@ -1,12 +1,13 @@
 <h1>New Releases</h1>
 <p>The following is a list of new releases.</p>
-<p>Click the <strong>album</strong> cover or <strong>artist</strong> name to filter it.</p>
+<p>
+  Click the <strong>album</strong> cover or <strong>artist</strong> name to
+  filter it.
+</p>
 <div class="content" *ngIf="util">
   <div fxLayout="row wrap" fxLayout.xs="column">
-    <!-- Single "Responsive" Card-->
     <div fxFlex [style.margin]="'20px'" *ngFor="let album of releases">
       <app-album-card [album]="album" [displayArtists]="true"></app-album-card>
     </div>
-    <!-- -->
   </div>
 </div>

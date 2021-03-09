@@ -1,7 +1,6 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Artist } from './artist.model';
 import { Image } from './image.model';
-
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +22,7 @@ export class Album {
     items: Array<{ track_number: number; name: string; duration_ms: number }>;
   };
   constructor() {
-    this.release_date = "";
-    this.type = "";    
+    this.release_date = '';
+    this.type = '';
   }
 }
