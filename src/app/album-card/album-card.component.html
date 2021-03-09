@@ -1,0 +1,28 @@
+<mat-card [style.min-width]="'200px'" [style.padding-bottom]="'5px'" *ngIf="album && album.images && album.artists ">
+  <mat-card-header [style.min-height]="'80px'">
+    <mat-card-title style="font-size: 1.35em" class="text-wrapper">{{
+      util.cropTitle(album.name, 45)
+    }}</mat-card-title>
+    <mat-card-subtitle>New Release</mat-card-subtitle>
+  </mat-card-header>
+  <a href="album"
+    ><img
+      mat-card-image
+      class="album-cover"
+      src="{{ album.images[1].url }}"
+      alt="album art"
+  /></a>
+  <strong>Release Date: </strong>{{ util.convertDate(album.release_date) }}
+  <br />
+  <strong>Tracks: </strong>{{ album.total_tracks }}<br />
+  <mat-card-content
+    [style.min-height]="'77px'"
+    [style.margin-top]="'8px'"
+  >
+    <mat-chip-list aria-label="Artist selection">
+      <a *ngFor="let artist of album.artists" href="artist">
+        <mat-chip>{{ artist.name }}</mat-chip>
+      </a>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>
