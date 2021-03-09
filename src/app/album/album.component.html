@@ -1,4 +1,4 @@
-<span class="container" *ngIf="album">
+<span class="container" *ngIf="album && album.images">
   <h1>
     {{ album.name }}
   </h1>
@@ -51,8 +51,6 @@
           <mat-card-content>
             {{ track.track_number }}: {{ track.name }} -
             {{ (track.duration_ms / 60000).toFixed(2) }}
-            <!-- NOTE 3.34 was determined by using
-            (duration_ms / 60000).toFixed(2) -->
           </mat-card-content>
         </mat-card>
       </div>

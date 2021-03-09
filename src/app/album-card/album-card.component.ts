@@ -9,8 +9,9 @@ import { Util } from '../helper/util';
 })
 export class AlbumCardComponent implements OnInit {
   @Input() album: Album;
+  @Input() displayArtists?: boolean;
   util: Util;
-  constructor(album: Album) {
+  constructor(album: Album,) {
     this.album = album;
     this.util = new Util();
    }

@@ -1,7 +1,4 @@
 export class Util {
-  /**
-   * These functions should be static and the class injected to the components
-   */
   convertDate(date: string): string {
     let converted = new Date(date);
     converted.setDate(converted.getDate() + 1);
