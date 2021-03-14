@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Album } from 'src/model/album.model';
 import { Artist } from 'src/model/artist.model';
+import { AlbumService } from '../album.service';
 import * as albumData from '../data/SearchResultsAlbums.json';
 import * as artistData from '../data/SearchResultsArtist.json';
 import { Util } from '../helper/util';
@@ -14,11 +15,12 @@ export class ArtistDiscographyComponent implements OnInit {
   albums?: Array<Album>;
   artist?: Artist;
   util?: Util;
-  constructor() {}
+
+  constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
     this.util = new Util();
     this.artist = (artistData as any).default;
-    this.albums = albumData.albums.items;
+    this.albums = this.albumService.getAlbumsByArtist();
   }
 }

@@ -1,6 +1,7 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Album } from 'src/model/album.model';
+import { AlbumService } from '../album.service';
 import * as data from '../data/NewReleasesAlbums.json';
 import { Util } from '../helper/util';
 
@@ -12,13 +13,13 @@ import { Util } from '../helper/util';
 export class NewReleasesComponent implements OnInit {
   releases: Array<Album>;
   util?: Util;
-  constructor() {
+  constructor(private albumService: AlbumService) {
     this.util = new Util();
     this.releases = [];
   }
 
   ngOnInit(): void {
     this.util = new Util();
-    this.releases = data.albums.items;
+    this.releases = this.albumService.getAlbumsNewReleases();
   }
 }

@@ -17,7 +17,6 @@ export class AlbumCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.album);
     this.util = new Util();
   }
 }

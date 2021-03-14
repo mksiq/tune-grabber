@@ -3,8 +3,9 @@ import { Artist } from './artist.model';
 import { Image } from './image.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+
 export class Album {
   type: string;
   artists?: Array<Artist>;
