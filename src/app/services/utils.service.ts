@@ -1,4 +1,12 @@
-export class Util {
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UtilsService {
+
+  constructor() { }
+
   convertDate(date: string): string {
     let converted = new Date(date);
     converted.setDate(converted.getDate() + 1);
