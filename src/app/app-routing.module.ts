@@ -5,12 +5,14 @@ import { AlbumComponent } from './album/album.component';
 import { ArtistDiscographyComponent } from './artist-discography/artist-discography.component';
 import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { NotFoundComponent } from './not-found/not-found.component'
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
-  { path: 'album', component: AlbumComponent },
+  { path: 'album/:id', component: AlbumComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'artist', component: ArtistDiscographyComponent },
+  { path: 'artist/:id', component: ArtistDiscographyComponent },
   { path: 'newReleases', component: NewReleasesComponent },
+  { path: 'search', component: SearchResultComponent },
   { path: '', redirectTo: '/newReleases', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
