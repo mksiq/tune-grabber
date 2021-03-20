@@ -29,7 +29,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, NotFoundComponent, NewReleasesComponent, AlbumComponent, ArtistDiscographyComponent, AlbumCardComponent, SearchResultComponent],
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    NotFoundComponent,
+    NewReleasesComponent,
+    AlbumComponent,
+    ArtistDiscographyComponent,
+    AlbumCardComponent,
+    SearchResultComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

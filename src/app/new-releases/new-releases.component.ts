@@ -12,7 +12,6 @@ export class NewReleasesComponent implements OnInit, OnDestroy {
   releasesSub: any;
 
   constructor(private musicService: MusicDataService) {
-
     this.releases = [];
   }
   ngOnInit(): void {

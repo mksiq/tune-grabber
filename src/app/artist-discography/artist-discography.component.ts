@@ -12,7 +12,7 @@ import { MusicDataService } from '../services/music-data.service';
 export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   artistSub: any;
   albums: Array<Album> = [];
- 
+
   albumsSub: any;
   artist?: Artist;
   routeSub: any;
@@ -46,18 +46,18 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
 }
 
 /**
- * Attempts to reduce the number of albums that are too similar to one another. 
+ * Attempts to reduce the number of albums that are too similar to one another.
  * Here if one album has 3/4 of another album title than it should not be added.
  * Very inefficient algorithm as it can be potentially O(n^2)
- * 
- * @param albums 
+ *
+ * @param albums
  * @returns albums with more unique properties
  */
-function makeAlbumsUnique(albums: Array<Album> ): Array<Album> {
+function makeAlbumsUnique(albums: Array<Album>): Array<Album> {
   let fixedAlbums: Array<Album> = [];
   for (let i = 0; i < albums.length; i++) {
     let exists: boolean = false;
-    let threeQuarters = albums[i].name.length / 4 * 3 ;
+    let threeQuarters = (albums[i].name.length / 4) * 3;
     for (let j = 0; j < fixedAlbums.length && !exists; j++) {
       if (
         albums[i].name.slice(0, threeQuarters).toUpperCase() ==
@@ -72,4 +72,3 @@ function makeAlbumsUnique(albums: Array<Album> ): Array<Album> {
   }
   return fixedAlbums;
 }
-

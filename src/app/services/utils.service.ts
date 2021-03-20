@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilsService {
-
-  constructor() { }
+  constructor() {}
 
   convertDate(date: string): string {
     let converted = new Date(date);

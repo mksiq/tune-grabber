@@ -16,18 +16,14 @@ export class AlbumCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onResize()
+    this.onResize();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if(window.innerWidth < 622)
-      this.cardSize = '600px';
-    else if(window.innerWidth < 1000)
-      this.cardSize = '250px';
-    else 
-      this.cardSize = '280px';  
-    console.log(this.cardSize)
+    if (window.innerWidth < 622) this.cardSize = '600px';
+    else if (window.innerWidth < 1000) this.cardSize = '250px';
+    else this.cardSize = '280px';
+    console.log(this.cardSize);
   }
-
 }

@@ -17,7 +17,8 @@
       [src]="album.images[1].url"
       alt="album art"
   /></a>
-  <strong>Release Date: </strong>{{ utilService.convertDate(album.release_date) }}
+  <strong>Release Date: </strong
+  >{{ utilService.convertDate(album.release_date) }}
   <br />
   <strong>Tracks: </strong>{{ album.total_tracks }}<br />
   <mat-card-content
@@ -26,7 +27,7 @@
     *ngIf="displayArtists"
   >
     <mat-chip-list aria-label="Artist selection">
-      <a *ngFor="let artist of album.artists" [href]="'artist/'+ artist.id">
+      <a *ngFor="let artist of album.artists" [href]="'artist/' + artist.id">
         <mat-chip>{{ artist.name }}</mat-chip>
       </a>
     </mat-chip-list>

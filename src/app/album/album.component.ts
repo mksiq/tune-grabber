@@ -39,15 +39,19 @@ export class AlbumComponent implements OnInit {
   }
 
   addToFavorites(trackID: string): void {
-    console.log("clicked" + trackID)
-      if (this.musicService.addToFavorites(trackID)) {
-        this.snackBar.open('Adding to Favourites...', 'Done', {
+    console.log('clicked' + trackID);
+    if (this.musicService.addToFavorites(trackID)) {
+      this.snackBar.open('Adding to Favourites...', 'Done', {
+        duration: 1500,
+      });
+    } else {
+      this.snackBar.open(
+        'Sorry, you reached max number for favourite tracks (50).',
+        'Done',
+        {
           duration: 1500,
-        });
-      } else {
-        this.snackBar.open('Sorry, you reached max number for favourite tracks (50).', 'Done', {
-          duration: 1500,
-        });
-      }
+        }
+      );
+    }
   }
 }
