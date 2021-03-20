@@ -9,12 +9,14 @@ import { mergeMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class MusicDataService {
-  favoritesList: Set<number> = new Set();
+  favoritesList: Set<string>;
 
   constructor(
     private spotifyToken: SpotifyTokenService,
     private http: HttpClient
-  ) {}
+  ) {
+    this.favoritesList = new Set<string>();
+  }
 
   getNewReleases(): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(
@@ -27,18 +29,29 @@ export class MusicDataService {
     );
   }
 
-  getArtistById(id: number): Observable<any> {
+  getArtistById(id: string): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
-        return this.http.get<any>(
-          `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album,single&limit=50`,
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
+        return this.http.get<any>(`https://api.spotify.com/v1/artists/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
       })
     );
   }
 
-  getAlbumById(id: number): Observable<any> {
+  getAlbumsByArtistId(id: string): Observable<any> {
+    return this.spotifyToken.getBearerToken().pipe(
+      mergeMap((token) => {
+        return this.http.get<any>(
+          `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album,single&limit=50`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+      })
+    );
+  }
+  getAlbumById(id: string): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
         return this.http.get<any>(`https://api.spotify.com/v1/albums/${id}`, {
@@ -59,21 +72,28 @@ export class MusicDataService {
     );
   }
 
-  addToFavorites(id: number): boolean {
+  addToFavorites(id: string): boolean {
+    if (!this.favoritesList) {
+      this.favoritesList = new Set<string>();
+    }
     if (id || this.favoritesList.size < 50) {
-      this.favoritesList.add(id);
+      this.favoritesList?.add(id);
+      console.log(this.favoritesList?.size);
       return true;
     }
     return false;
   }
 
-  removeFromFavorites(id: number): Set<number> {
-    this.favoritesList.delete(id);
-    return this.favoritesList;
+  removeFromFavorites(id: string): Set<string> {
+    if (this.favoritesList) {
+      this.favoritesList?.delete(id);
+      return this.favoritesList;
+    }
+    return new Set();
   }
 
   getFavorites(): Observable<any> {
-    if (this.favoritesList.size > 0) {
+    if (this.favoritesList && this.favoritesList.size > 0) {
       let ids: string = [...this.favoritesList].join(',');
       return this.spotifyToken.getBearerToken().pipe(
         mergeMap((token) => {
@@ -88,5 +108,4 @@ export class MusicDataService {
       o.next([]);
     });
   }
-
 }

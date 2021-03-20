@@ -17,7 +17,7 @@
       <div fxFlex>
         <div [style.min-width]="'300px'" [style.margin]="'10px'">
           <strong>Record Label: </strong> {{ album.label }}<br />
-          <strong>Release Date: </strong> {{ convertDate(album.release_date)
+          <strong>Release Date: </strong> {{ utilService.convertDate(album.release_date)
           }}<br /><br />
           <strong>Tracks:</strong> {{ album.total_tracks }}<br />
           <strong>Popularity: </strong>{{ album.popularity }}<br /><br />
@@ -25,7 +25,7 @@
             aria-label="Artist selection"
             *ngFor="let artist of album.artists"
           >
-            <a href="/artist">
+            <a [href]="'artist/'+ artist.id">
               <mat-chip>{{ artist.name }}</mat-chip>
             </a>
           </mat-chip-list>
@@ -39,18 +39,20 @@
   </mat-card>
   <br /><br />
   <h2>Track Listing</h2>
+  <p>Click the   <mat-icon mat-list-icon >queue_music</mat-icon>  icon to add a song from your favourites list </p>
   <mat-list *ngIf="album && album.tracks">
     <mat-list-item
       *ngFor="let track of album.tracks.items"
       style="margin-bottom: 3px"
     >
-      <mat-icon mat-list-icon>queue_music</mat-icon>
-      <div mat-line>
+     <mat-icon mat-list-icon (click)="addToFavorites(track.id)">queue_music</mat-icon>
+      <div mat-line >
         <mat-card>
           <mat-card-content>
             {{ track.track_number }}: {{ track.name }} -
             {{ (track.duration_ms / 60000).toFixed(2) }}
           </mat-card-content>
+          <div *ngIf="track.preview_url"><br /><audio controls [src]="track.preview_url"></audio></div>
         </mat-card>
       </div>
     </mat-list-item>

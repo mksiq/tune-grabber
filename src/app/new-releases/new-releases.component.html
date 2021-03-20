@@ -4,7 +4,7 @@
   Click the <strong>album</strong> cover or <strong>artist</strong> name to
   filter it.
 </p>
-<div class="content" *ngIf="util">
+<div class="content">
   <div fxLayout="row wrap" fxLayout.xs="column">
     <div fxFlex [style.margin]="'20px'" *ngFor="let album of releases">
       <app-album-card [album]="album" [displayArtists]="true"></app-album-card>

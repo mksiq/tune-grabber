@@ -7,12 +7,13 @@ import { Image } from './image.model';
 })
 
 export class Album {
+  id:string;
   type: string;
   artists?: Array<Artist>;
   available_markets?: Array<string>;
   href?: string;
   images?: Array<Image>;
-  name?: string;
+  name: string;
   release_date: string;
   total_tracks?: number;
   uri?: string;
@@ -20,10 +21,12 @@ export class Album {
   popularity?: number;
   copyrights?: Array<{ text: string; type: string }>;
   tracks?: {
-    items: Array<{ track_number: number; name: string; duration_ms: number }>;
+    items: Array<{ id:string, preview_url: string, track_number: number; name: string; duration_ms: number }>;
   };
   constructor() {
     this.release_date = '';
     this.type = '';
+    this.id = '';
+    this.name = '';
   }
 }
