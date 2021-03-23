@@ -1,4 +1,4 @@
-<h1>Results for: &ldquo;Some Query&rdquo;</h1>
+<h1>Results for: &ldquo;{{searchQuery}}&rdquo;</h1>
 <p>
   The following is a list of artists matching the query.<br />
   Click the <strong>artist image</strong> for more information.
@@ -10,21 +10,23 @@
   <div fxLayout="row wrap" fxLayout.xs="column">
     <!-- single result "card"-->
     <div fxFlex [style.margin]="'20px'" *ngFor="let artist of results">
-      <mat-card [style.min-width]="'200px'">
-        <mat-card-header>
+      <mat-card [style.min-width]="'200px'" >
+        <mat-card-header [style.min-height]="'60px'">
           <mat-card-title>{{artist.name}}</mat-card-title>
-          <mat-card-subtitle>Artist</mat-card-subtitle>
         </mat-card-header>
-        <img
-          routerLink="/artist"
+        <img *ngIf="artist.images[0].url"
+          [routerLink]="'/artist/'+artist.id"
           mat-card-image
           class="album-cover"
-          src="Some Artist's Image"
+          [src]="artist.images[1].url"
           alt="artist art"
-        />
+          [style.object-fit]="'cover'"
+          [style.max-height]="'250px'"
+          [style.min-height]="'250px'"
+        />       
         <mat-card-content>
-          <strong>Followers: </strong>Total followers for Some Artist<br />
-          <strong>Popularity: </strong>Popularity for Some Artist
+          <strong>Followers: </strong>{{artist.followers.total.toLocaleString() }}<br />
+          <strong>Popularity: </strong>{{artist.popularity}}
         </mat-card-content>
       </mat-card>
     </div>
