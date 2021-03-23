@@ -76,9 +76,8 @@ export class MusicDataService {
     if (!this.favoritesList) {
       this.favoritesList = new Set<string>();
     }
-    if (id || this.favoritesList.size < 50) {
+    if (id && this.favoritesList.size < 50) {
       this.favoritesList?.add(id);
-      console.log(this.favoritesList?.size);
       return true;
     }
     return false;
