@@ -7,15 +7,16 @@ export class Artist {
   type: string;
   uri: string;
   popularity?: number;
-  followers?: {href: string, total: number};
-  genres?: Array<string>;
-  images?: Array<Image>;
+  followers: {href: string, total: number} = {href: "", total: 0};
+  genres: Array<string> = [];
+  images: Array<Image> = [];
   
-  constructor(name: string, href: string, id: string, uri: string) {
+  constructor(name: string, href: string, id: string, uri: string, images: Array<Image>) {
     this.name = name;
     this.href = href;
     this.id = id;
     this.type = 'artist';
     this.uri = uri;
+    this.images = images;
   }
 }
