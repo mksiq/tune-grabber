@@ -15,15 +15,19 @@ export class SearchResultComponent implements OnInit {
   routeSub: any;
   artistsSub: any;
 
-  constructor( private route: ActivatedRoute,  private musicService: MusicDataService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private musicService: MusicDataService
+  ) {}
 
   ngOnInit(): void {
-    this.routeSub = this.route.params.subscribe((params) => {
-      console.log("called search")
+    this.routeSub = this.route.queryParams.subscribe((params) => {
+      console.log('called search');
       this.searchQuery = params.q;
+      console.log(params)
       this.artistsSub = this.musicService.searchArtists(params.q).subscribe(
         (data) => {
-          console.log(data)
+        //  console.log(data);
           this.results = data.artists?.items;
         },
         (error) => console.log(console.log('Handle bad request'))

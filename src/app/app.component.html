@@ -39,10 +39,10 @@
     >
       <mat-nav-list>
         <div>
-          <form action="/search/" method="POST">
+          <form #f="ngForm" (ngSubmit)="handleSearch(f)" >
             <mat-form-field appearance="fill">
               <mat-label>Artist</mat-label>
-              <input matInput type="text" name="q"/>
+              <input matInput type="text" name="q" [(ngModel)]="searchString"/>
 
                 <mat-icon matSuffix 
                 

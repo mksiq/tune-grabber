@@ -8,6 +8,8 @@
  * *********************************************************************************/
 
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +17,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  searchString: string = '';
   title = 'music';
+
+  constructor(private router: Router) {}
+
+  handleSearch(f: NgForm): void {
+    console.log(this.searchString);
+    console.log(f.value)
+    this.router.navigate(['/search'], {
+      queryParams: { q: this.searchString },
+    });
+    this.searchString = '';
+  }
 }

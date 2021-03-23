@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'artist/:id', component: ArtistDiscographyComponent },
   { path: 'newReleases', component: NewReleasesComponent },
-  { path: 'search/', component: SearchResultComponent },
+  { path: 'search', component: SearchResultComponent },
   { path: '', redirectTo: '/newReleases', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];
