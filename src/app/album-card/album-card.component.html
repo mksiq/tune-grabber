@@ -10,7 +10,7 @@
     }}</mat-card-title>
     <mat-card-subtitle>New Release</mat-card-subtitle>
   </mat-card-header>
-  <a [href]="'album/' + album.id"
+  <a [routerLink]="'/album/' + album.id"
     ><img
       mat-card-image
       class="album-cover"
@@ -27,9 +27,9 @@
     *ngIf="displayArtists"
   >
     <mat-chip-list aria-label="Artist selection">
-      <a *ngFor="let artist of album.artists" [href]="'artist/' + artist.id">
-        <mat-chip>{{ artist.name }}</mat-chip>
-      </a>
+      <span *ngFor="let artist of album.artists">
+          <mat-chip [routerLink]="'/artist/' + artist.id">{{ artist.name }}</mat-chip>
+      </span>
     </mat-chip-list>
   </mat-card-content>
   <br *ngIf="!displayArtists" />

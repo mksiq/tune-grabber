@@ -5,7 +5,7 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <a class="navbar-brand" matTooltip="Home" href="/">
+    <a class="navbar-brand" matTooltip="Home" routerLink="/">
       <h1>Seneca Music</h1>
     </a>
 
@@ -39,14 +39,20 @@
     >
       <mat-nav-list>
         <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Artist</mat-label>
-            <input matInput type="text" />
-            <mat-icon matSuffix>search</mat-icon>
-          </mat-form-field>
+          <form action="/search/" method="POST">
+            <mat-form-field appearance="fill">
+              <mat-label>Artist</mat-label>
+              <input matInput type="text" name="q"/>
+
+                <mat-icon matSuffix 
+                
+                >search</mat-icon>
+
+            </mat-form-field>
+          </form>
         </div>
 
-        <a mat-list-item href="/newReleases">
+        <a mat-list-item routerLink="/newReleases">
           <mat-icon mat-list-icon> library_music </mat-icon>
           <p mat-line>New Releases</p>
         </a>
