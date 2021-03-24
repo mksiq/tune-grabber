@@ -9,10 +9,9 @@ import { UtilsService } from '../services/utils.service';
 })
 export class AlbumCardComponent implements OnInit {
   public cardSize: string = '200px';
-  @Input() album: Album;
+  @Input() album: Album = new Album();
   @Input() displayArtists?: boolean;
-  constructor(album: Album, public utilService: UtilsService) {
-    this.album = album;
+  constructor( public utilService: UtilsService) {
   }
 
   ngOnInit(): void {
