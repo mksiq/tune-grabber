@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
     AlbumCardComponent,
     SearchResultComponent,
     FavouritesComponent,
+    ArtistCardComponent,
   ],
   imports: [
     BrowserModule,

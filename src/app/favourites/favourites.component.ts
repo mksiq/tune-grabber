@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Track } from 'src/model/track.model';
 import { MusicDataService } from '../services/music-data.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { MusicDataService } from '../services/music-data.service';
   styleUrls: ['./favourites.component.css'],
 })
 export class FavouritesComponent implements OnInit {
-  favourites: any;
+  favourites: Array<Track> = [];
   favouriteSub: any;
 
   constructor(private musicService: MusicDataService) {}

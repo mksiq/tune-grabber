@@ -51,6 +51,7 @@ export class MusicDataService {
       })
     );
   }
+  
   getAlbumById(id: string): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
