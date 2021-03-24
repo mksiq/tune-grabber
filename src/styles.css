@@ -1,7 +1,13 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 body {
   margin: 0;
@@ -14,12 +20,12 @@ body {
   font-size: 14px !important;
 }
 
-.album-cover:hover{
+.album-cover:hover {
   cursor: pointer;
 }
 
-mat-chip:hover{
-  cursor:pointer;
+mat-chip:hover {
+  cursor: pointer;
 }
 
 .navbar-spacer {
@@ -44,7 +50,6 @@ mat-chip:hover{
   left: 0;
   right: 0;
   background-color: #fafafa;
-
 }
 
 /*Set sidenav width*/
@@ -52,53 +57,51 @@ mat-chip:hover{
 mat-sidenav {
   min-width: 180px !important;
   border-right: 1px solid #eee;
-  box-shadow: 6px 0 6px rgba(0, 0, 0, .1);
+  box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
   /* background-color:rgb(63, 81, 181); */
 }
-
 
 #push-bottom {
   position: absolute;
   bottom: 0;
 }
 
-.mat-toolbar{
-  min-height: 64px
+.mat-toolbar {
+  min-height: 64px;
 }
 
-.sidenav-content{
+.sidenav-content {
   padding: 40px;
 }
 
-.bottom-spacer{
+.bottom-spacer {
   height: 80px;
 }
-  
-@media only screen and (max-width: 600px) {
 
+@media only screen and (max-width: 600px) {
   mat-sidenav {
     position: fixed !important;
   }
 
-  mat-sidenav-content{
+  mat-sidenav-content {
     margin-left: 0px !important;
   }
 
-  .sidenav-content{
-    padding:20px;
+  .sidenav-content {
+    padding: 20px;
   }
 
-  .bottom-spacer{
+  .bottom-spacer {
     height: 40px;
   }
 }
 
-.mat-drawer-container{
+.mat-drawer-container {
   overflow: auto !important;
   height: 100%;
 }
 
-.mat-drawer-content{
+.mat-drawer-content {
   height: auto !important;
 }
 
@@ -138,13 +141,27 @@ mat-sidenav {
   }
 }
 
-.text-wrapper {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+.mat-card-header-text {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.mat-card-header-text {
-  padding: 0 !important; 
-  margin: 0 !important;
+a:visited {
+  color: #EEE;
+}
+
+.main {
+  background-color: #2E294E;
+  /* background: rgb(31,30,66); */
+  /* background: linear-gradient(180deg, rgba(31,30,66,1) 0%, rgba(45,17,59,1) 20%, rgba(75,49,49,1) 100%); */
+}
+
+.navbar{
+  /* background-color: #D7263D!important; */
+  background: rgb(215,38,61)!important;
+background: linear-gradient(100deg, rgba(215,38,61,1) 0%, rgba(244,96,54,1) 72%, rgba(255,49,0,1) 100%)!important;
+}
+
+.nav{
+  background-color: #D7263D!important;
 }

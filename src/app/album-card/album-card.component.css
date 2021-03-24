@@ -1,0 +1,11 @@
+.content {
+    color: rgb(251, 253, 230)!important;
+    border-radius: 50px!important;
+    background: #2E294E!important;
+    box-shadow:  20px 20px 60px #272342,
+                 -20px -20px 60px #352f5a!important;
+}
+
+.artist-pill{
+    background: #1B998B!important;
+}
