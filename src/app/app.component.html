@@ -1,6 +1,6 @@
-<div class="navbar-container">
+<div class="navbar-container" class="main">
   <!-- Top navbar -->
-  <mat-toolbar class="navbar" color="primary">
+  <mat-toolbar class="navbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -42,8 +42,14 @@
         <div>
           <form #f="ngForm" (ngSubmit)="handleSearch(f)">
             <mat-form-field appearance="fill">
-              <mat-label>Artist</mat-label>
-              <input matInput type="text" name="q" [(ngModel)]="searchString" />
+              <mat-label class="search-input">Artist</mat-label>
+              <input
+                matInput
+                type="text"
+                name="q"
+                [(ngModel)]="searchString"
+                class="search-input"
+              />
 
               <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
@@ -68,12 +74,10 @@
         </a>
       </mat-nav-list>
     </mat-sidenav>
-
     <mat-sidenav-content class="sidenav-content main">
       <!-- Main content -->
       <router-outlet></router-outlet>
       <!-- ------------ -->
-
       <div class="bottom-spacer"></div>
     </mat-sidenav-content>
   </mat-sidenav-container>

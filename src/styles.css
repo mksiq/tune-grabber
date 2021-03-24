@@ -150,7 +150,7 @@ a:visited {
   color: #EEE;
 }
 
-.main {
+.main, body {
   background-color: #2E294E;
   /* background: rgb(31,30,66); */
   /* background: linear-gradient(180deg, rgba(31,30,66,1) 0%, rgba(45,17,59,1) 20%, rgba(75,49,49,1) 100%); */
@@ -164,4 +164,19 @@ background: linear-gradient(100deg, rgba(215,38,61,1) 0%, rgba(244,96,54,1) 72%,
 
 .nav{
   background-color: #D7263D!important;
+}
+.search-input{
+  color:white;
+}
+
+.content {
+  color: rgb(251, 253, 230)!important;
+  border-radius: 50px!important;
+  background: #2E294E!important;
+  box-shadow:  20px 20px 60px #272342,
+               -20px -20px 60px #352f5a!important;
+}
+
+.artist-pill{
+  background: #1B998B!important;
 }
