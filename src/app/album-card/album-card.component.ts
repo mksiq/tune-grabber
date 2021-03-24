@@ -11,8 +11,7 @@ export class AlbumCardComponent implements OnInit {
   public cardSize: string = '200px';
   @Input() album: Album = new Album();
   @Input() displayArtists?: boolean;
-  constructor( public utilService: UtilsService) {
-  }
+  constructor(public utilService: UtilsService) {}
 
   ngOnInit(): void {
     this.onResize();

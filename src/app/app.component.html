@@ -28,27 +28,24 @@
     </mat-menu>
   </mat-toolbar>
 
-  <mat-sidenav-container >
+  <mat-sidenav-container>
     <!-- Side nav -->
-    <mat-sidenav class="nav"
+    <mat-sidenav
+      class="nav"
       #snav
       [opened]="false"
       [mode]="'side'"
       [fixedInViewport]="true"
       fixedTopGap="56"
-      
     >
       <mat-nav-list>
-        <div >
-          <form #f="ngForm" (ngSubmit)="handleSearch(f)" >
+        <div>
+          <form #f="ngForm" (ngSubmit)="handleSearch(f)">
             <mat-form-field appearance="fill">
               <mat-label>Artist</mat-label>
-              <input matInput type="text" name="q" [(ngModel)]="searchString"/>
+              <input matInput type="text" name="q" [(ngModel)]="searchString" />
 
-                <mat-icon matSuffix 
-                
-                >search</mat-icon>
-
+              <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
           </form>
         </div>
@@ -60,7 +57,7 @@
 
         <a mat-list-item routerLink="/favourites">
           <mat-icon mat-list-icon> favorite </mat-icon>
-          <p mat-line >Favorites</p>
+          <p mat-line>Favorites</p>
         </a>
 
         <mat-divider></mat-divider>

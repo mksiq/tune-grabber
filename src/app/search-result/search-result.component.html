@@ -1,40 +1,17 @@
-<h1>Results for: &ldquo;{{searchQuery}}&rdquo;</h1>
+<h1>Results for: &ldquo;{{ searchQuery }}&rdquo;</h1>
 <div *ngIf="results.length > 0">
-<p>
-  The following is a list of artists matching the query.<br />
-  Click the <strong>artist image</strong> for more information.
-</p>
-
-<br />
-
-<div class="content">
-  <div fxLayout="row wrap" fxLayout.xs="column">
-    <!-- single result "card"-->
-    <div fxFlex [style.margin]="'20px'" *ngFor="let artist of results">
-      <mat-card [style.min-width]="'200px'" >
-        <mat-card-header [style.min-height]="'60px'">
-          <mat-card-title>{{artist.name}}</mat-card-title>
-        </mat-card-header>
-        <img *ngIf="artist.images[0].url"
-          [routerLink]="'/artist/'+artist.id"
-          mat-card-image
-          class="album-cover"
-          [src]="artist.images[1].url"
-          alt="artist art"
-          [style.object-fit]="'cover'"
-          [style.max-height]="'250px'"
-          [style.min-height]="'250px'"
-
-        />       
-        <mat-card-content>
-          <strong>Followers: </strong>{{artist.followers.total.toLocaleString() }}<br />
-          <strong>Popularity: </strong>{{artist.popularity}}
-        </mat-card-content>
-      </mat-card>
+  <p>
+    The following is a list of artists matching the query.<br />
+    Click the <strong>artist image</strong> for more information.
+  </p>
+  <br />
+  <div class="content">
+    <div fxLayout="row wrap" fxLayout.xs="column">
+      <div fxFlex [style.margin]="'20px'" *ngFor="let artist of results">
+        <app-artist-card [artist]="artist"></app-artist-card>
+      </div>
     </div>
-    <!-- -->
   </div>
-</div>
 </div>
 <div *ngIf="results.length == 0">
   <p>Sorry. We didn't find any albums with your filter.</p>
