@@ -147,36 +147,48 @@ mat-sidenav {
 }
 
 a:visited {
-  color: #EEE;
+  color: #eee;
 }
 
-.main, body {
-  background-color: #2E294E;
+.main,
+body {
+  background-color: #2e294e;
   /* background: rgb(31,30,66); */
   /* background: linear-gradient(180deg, rgba(31,30,66,1) 0%, rgba(45,17,59,1) 20%, rgba(75,49,49,1) 100%); */
 }
 
-.navbar{
+.navbar {
   /* background-color: #D7263D!important; */
-  background: rgb(215,38,61)!important;
-background: linear-gradient(100deg, rgba(215,38,61,1) 0%, rgba(244,96,54,1) 72%, rgba(255,49,0,1) 100%)!important;
+  background: rgb(215, 38, 61) !important;
+  background: linear-gradient(
+    100deg,
+    rgba(215, 38, 61, 1) 0%,
+    rgba(244, 96, 54, 1) 72%,
+    rgba(255, 49, 0, 1) 100%
+  ) !important;
 }
 
-.nav{
-  background-color: #D7263D!important;
+.nav {
+  background-color: #d7263d !important;
 }
-.search-input{
-  color:white;
+
+.search-input {
+  color: white;
 }
 
 .content {
-  color: rgb(251, 253, 230)!important;
-  border-radius: 50px!important;
-  background: #2E294E!important;
-  box-shadow:  20px 20px 60px #272342,
-               -20px -20px 60px #352f5a!important;
+  color: rgb(251, 253, 230) !important;
+  border-radius: 50px !important;
+  background: #2e294e !important;
+  box-shadow: 20px 20px 60px #272342, -20px -20px 60px #352f5a !important;
 }
 
-.artist-pill{
-  background: #1B998B!important;
+.artist-pill {
+  background: #1b998b !important;
+}
+
+.reverse {
+  border-radius: 50px !important;
+  background: #2e294e !important;
+  box-shadow: inset 20px 20px 60px #272342, inset -20px -20px 60px #352f5a !important;
 }

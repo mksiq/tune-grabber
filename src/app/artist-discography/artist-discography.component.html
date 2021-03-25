@@ -1,7 +1,7 @@
 <span *ngIf="albums && artist && artist.images">
   <h1>{{ artist.name }}</h1>
   <p>Full Discography for {{ artist.name }}</p>
-  <p>Click the <strong>album </strong> cover for more information.</p>
+
   <mat-card
     [style.background]="
       'url(' + artist.images[0].url + ') no-repeat center center'
@@ -10,9 +10,11 @@
     [style.height]="'450px'"
     class="resize"
   >
+  
     <span class="cover-name">{{ artist.name }}</span>
   </mat-card>
   <br /><br />
+  <p>Click the <strong>album </strong> cover for more information.</p>
   <div fxLayout="row wrap" fxLayout.xs="column">
     <div fxFlex [style.margin]="'20px'" *ngFor="let album of albums">
       <app-album-card [album]="album"></app-album-card>

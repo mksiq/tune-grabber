@@ -11,13 +11,13 @@
   <mat-list>
     <!-- single "favourite" card -->
     <div *ngFor="let track of favourites">
-      <mat-list-item>
+      <mat-list-item style="margin-bottom: 5px">
         <mat-icon mat-list-icon (click)="handleRemoveClick(track.id)"
           >remove_from_queue</mat-icon
         >
         <div mat-line>
-          <mat-card>
-            <mat-card-content
+          <mat-card class="reverse">
+            <mat-card-content style="margin-left: 20px"
               ><strong>{{ track.name }}</strong> -
               {{ (track.duration_ms / 60000).toFixed(2) }}<br /><br />
               Artist(s):
@@ -47,10 +47,10 @@
 </div>
 <div *ngIf="!favourites">
   <h1>Favourites</h1>
+  <p>You don't have any music in your favourites.</p>
   <p>
-    You don't have any music in favourites. Click on &nbsp;<mat-icon
-      mat-list-icon
-      >queue_music</mat-icon
-    >&nbsp; icon to <strong>add</strong> a song in an album to add your list.
+    Go to an album and click the &nbsp;
+    <mat-icon mat-list-icon>queue_music</mat-icon>&nbsp; icon to
+    <strong>add</strong> a song to your list.
   </p>
 </div>
