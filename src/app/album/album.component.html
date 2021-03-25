@@ -55,16 +55,17 @@
       >
       <div mat-line> 
         <mat-card class="reverse">
-          <mat-card-content>
+          <mat-card-content style="margin-left: 20px;">
             {{ track.track_number }}: {{ track.name }} -
-            {{ (track.duration_ms / 60000).toFixed(2) }}
-            <span *ngIf="track.preview_url">
-              <br /><audio controls [src]="track.preview_url"></audio>
-            </span>
-          </mat-card-content>
+            {{ utilService.displayTime(track.duration_ms) }}
+            <div *ngIf="track.preview_url" >
+              <audio  class="audio-control" controls [src]="track.preview_url"></audio>
+            </div>
 
+          </mat-card-content>
         </mat-card>
       </div>
     </mat-list-item>
   </mat-list>
 </span>
+
