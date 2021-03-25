@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'artist/:id', component: ArtistDiscographyComponent },
   { path: 'newReleases', component: NewReleasesComponent },
   { path: 'search', component: SearchResultComponent },
-  { path: 'favourites', component: FavouritesComponent},
+  { path: 'favourites', component: FavouritesComponent },
   { path: '', redirectTo: '/newReleases', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
 ];

@@ -1,9 +1,9 @@
-<span class="container"  *ngIf="album && album.images">
+<span class="container" *ngIf="album && album.images">
   <h1>
     {{ album.name }}
   </h1>
-  
-  <br/>
+
+  <br />
   <mat-card class="content">
     <mat-card-header></mat-card-header>
     <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
@@ -26,9 +26,11 @@
             aria-label="Artist selection"
             *ngFor="let artist of album.artists"
           >
-            <mat-chip [routerLink]="'/artist/' + artist.id" class="artist-pill">{{
-              artist.name
-            }}</mat-chip>
+            <mat-chip
+              [routerLink]="'/artist/' + artist.id"
+              class="artist-pill"
+              >{{ artist.name }}</mat-chip
+            >
           </mat-chip-list>
           <br />
           <div *ngFor="let copyright of album.copyrights">
@@ -53,19 +55,21 @@
       <mat-icon mat-list-icon (click)="addToFavorites(track.id)"
         >queue_music</mat-icon
       >
-      <div mat-line> 
+      <div mat-line>
         <mat-card class="reverse">
-          <mat-card-content style="margin-left: 20px;">
+          <mat-card-content style="margin-left: 20px">
             {{ track.track_number }}: {{ track.name }} -
             {{ utilService.displayTime(track.duration_ms) }}
-            <div *ngIf="track.preview_url" >
-              <audio  class="audio-control" controls [src]="track.preview_url"></audio>
+            <div *ngIf="track.preview_url">
+              <audio
+                class="audio-control"
+                controls
+                [src]="track.preview_url"
+              ></audio>
             </div>
-
           </mat-card-content>
         </mat-card>
       </div>
     </mat-list-item>
   </mat-list>
 </span>
-

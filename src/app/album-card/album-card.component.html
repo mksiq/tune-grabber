@@ -3,9 +3,10 @@
   [style.max-width]="cardSize"
   [style.padding-bottom]="'5px'"
   *ngIf="album && album.name && album.images && album.artists"
- class="content">
+  class="content"
+>
   <mat-card-header [style.min-height]="'80px'">
-    <mat-card-title style="font-size: 1.35em" >{{
+    <mat-card-title style="font-size: 1.35em">{{
       utilService.cropTitle(album.name, 45)
     }}</mat-card-title>
     <mat-card-subtitle *ngIf="displayArtists">New Release</mat-card-subtitle>
@@ -27,9 +28,11 @@
     [style.margin-top]="'8px'"
     *ngIf="displayArtists"
   >
-    <mat-chip-list aria-label="Artist selection"    >
+    <mat-chip-list aria-label="Artist selection">
       <span *ngFor="let artist of album.artists">
-          <mat-chip [routerLink]="'/artist/' + artist.id" class="artist-pill">{{ artist.name }}</mat-chip>
+        <mat-chip [routerLink]="'/artist/' + artist.id" class="artist-pill">{{
+          artist.name
+        }}</mat-chip>
       </span>
     </mat-chip-list>
   </mat-card-content>
