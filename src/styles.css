@@ -146,6 +146,12 @@ mat-sidenav {
   margin: 0 !important;
 }
 
+/* Colors from:
+  https://coolors.co/d7263d-f46036-2e294e-1b998b-c5d86d
+  card design from
+  https://neumorphism.io/
+*/
+
 a:visited {
   color: #eee;
 }
@@ -153,12 +159,9 @@ a:visited {
 .main,
 body {
   background-color: #2e294e;
-  /* background: rgb(31,30,66); */
-  /* background: linear-gradient(180deg, rgba(31,30,66,1) 0%, rgba(45,17,59,1) 20%, rgba(75,49,49,1) 100%); */
 }
 
 .navbar {
-  /* background-color: #D7263D!important; */
   background: rgb(215, 38, 61) !important;
   background: linear-gradient(
     100deg,
