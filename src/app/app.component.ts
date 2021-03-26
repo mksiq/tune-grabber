@@ -23,8 +23,6 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   handleSearch(f: NgForm): void {
-    console.log(this.searchString);
-    console.log(f.value)
     this.router.navigate(['/search'], {
       queryParams: { q: this.searchString },
     });

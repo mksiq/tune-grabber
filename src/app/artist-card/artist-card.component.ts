@@ -16,7 +16,10 @@ export class ArtistCardComponent implements OnInit {
   ngOnInit(): void {
     this.onResize();
   }
-
+  
+  /**
+   * Tries to minimize how much a album can grow in small windows
+   */
   @HostListener('window:resize', ['$event'])
   onResize() {
     if (window.innerWidth < 622) this.cardSize = '600px';

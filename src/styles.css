@@ -195,3 +195,7 @@ body {
   background: #2e294e !important;
   box-shadow: inset 20px 20px 60px #272342, inset -20px -20px 60px #352f5a !important;
 }
+
+.search-button:hover {
+  cursor: pointer;
+}

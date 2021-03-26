@@ -24,24 +24,31 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe((params) => {
-      this.artistSub = this.musicService
-        .getArtistById(params.id)
-        .subscribe((data) => {
+      this.artistSub = this.musicService.getArtistById(params.id).subscribe(
+        (data) => {
           console.log(data);
           this.artist = data;
-        });
+        },
+        (err) =>
+          console.error('Could notd fin any artist with id: ' + params.id)
+      );
       this.albumsSub = this.musicService
         .getAlbumsByArtistId(params.id)
-        .subscribe((data) => {
-          this.albums = data.items;
-          this.albums = makeAlbumsUnique(data.items);
-        });
+        .subscribe(
+          (data) => {
+            this.albums = data.items;
+            this.albums = makeAlbumsUnique(data.items);
+          },
+          (err) =>
+            console.error('Could not find any albums for the requested id')
+        );
     });
   }
 
   ngOnDestroy(): void {
     this.artistSub.unsubscribe();
     this.albumsSub.unsubscribe();
+    this.routeSub.unsubscribe();
   }
 }
 

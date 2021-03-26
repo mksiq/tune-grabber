@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Album } from 'src/model/album.model';
 import { MusicDataService } from '../services/music-data.service';
@@ -10,7 +10,7 @@ import { UtilsService } from '../services/utils.service';
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.css'],
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit , OnDestroy {
   album?: Album;
   albumSub: any;
   routeSub: any;
@@ -28,7 +28,7 @@ export class AlbumComponent implements OnInit {
         (data) => {
           this.album = data;
         },
-        (error) => console.log(console.log('Handle bad request'))
+        (error) => console.log(console.error('Invalid album id.'))
       );
     });
   }

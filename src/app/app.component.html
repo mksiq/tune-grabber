@@ -28,7 +28,7 @@
     </mat-menu>
   </mat-toolbar>
 
-  <mat-sidenav-container>
+  <mat-sidenav-container class="nav">
     <!-- Side nav -->
     <mat-sidenav
       class="nav"
@@ -50,8 +50,9 @@
                 [(ngModel)]="searchString"
                 class="search-input"
               />
-
-              <mat-icon matSuffix>search</mat-icon>
+              <!-- This is necessary because it someone may want to click the icon
+                 instead of pressing Enter -->
+              <mat-icon matSuffix (click)="handleSearch(f)" class="search-button">search</mat-icon>
             </mat-form-field>
           </form>
         </div>

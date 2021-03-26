@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Artist } from 'src/model/artist.model';
 
@@ -10,7 +10,7 @@ import { UtilsService } from '../services/utils.service';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css'],
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent implements OnInit, OnDestroy {
   results: Array<Artist> = [];
   searchQuery: any;
   routeSub: any;
@@ -45,5 +45,10 @@ export class SearchResultComponent implements OnInit {
         (error) => console.log(console.log('Handle bad request'))
       );
     });
+  }
+
+  ngOnDestroy(): void {
+    this.routeSub.unsubscribe();
+    this.artistsSub.unsubscribe();
   }
 }
