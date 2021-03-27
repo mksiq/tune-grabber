@@ -10,10 +10,11 @@ import { UtilsService } from '../services/utils.service';
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.css'],
 })
-export class AlbumComponent implements OnInit , OnDestroy {
+export class AlbumComponent implements OnInit, OnDestroy {
   album?: Album;
   albumSub: any;
   routeSub: any;
+  loading: boolean = true;
 
   constructor(
     private musicService: MusicDataService,
@@ -27,8 +28,14 @@ export class AlbumComponent implements OnInit , OnDestroy {
       this.albumSub = this.musicService.getAlbumById(params.id).subscribe(
         (data) => {
           this.album = data;
+          if (this.album) {
+            this.loading = false;
+          }
         },
-        (error) => console.log(console.error('Invalid album id.'))
+        (error) => {
+          console.log(console.error('Invalid album id.'));
+          this.loading = false;
+        }
       );
     });
   }

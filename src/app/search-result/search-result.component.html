@@ -13,6 +13,6 @@
     </div>
   </div>
 </div>
-<div *ngIf="results.length == 0">
-  <p>Sorry. We didn't find any albums with your filter.</p>
+<div *ngIf="!loading">
+  <p>Sorry. We couldn't find any albums that matches your request.</p>
 </div>

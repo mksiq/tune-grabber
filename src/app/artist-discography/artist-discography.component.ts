@@ -16,6 +16,7 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   albumsSub: any;
   artist?: Artist;
   routeSub: any;
+  loading: boolean = true;
 
   constructor(
     private musicService: MusicDataService,
@@ -28,9 +29,14 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
         (data) => {
           console.log(data);
           this.artist = data;
+          if (this.artist) {
+            this.loading = false;
+          }
         },
-        (err) =>
-          console.error('Could notd fin any artist with id: ' + params.id)
+        (error) => {
+          console.log(console.error('Invalid artist id.'));
+          this.loading = false;
+        }
       );
       this.albumsSub = this.musicService
         .getAlbumsByArtistId(params.id)

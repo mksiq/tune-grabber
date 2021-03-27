@@ -84,12 +84,11 @@ export class MusicDataService {
     return false;
   }
 
-  removeFromFavorites(id: string): Set<string> {
+  removeFromFavorites(id: string): Observable<any> {
     if (this.favoritesList) {
-      this.favoritesList?.delete(id);
-      return this.favoritesList;
+      this.favoritesList.delete(id);
     }
-    return new Set();
+    return this.getFavorites();
   }
 
   getFavorites(): Observable<any> {

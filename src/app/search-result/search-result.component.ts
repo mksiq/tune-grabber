@@ -15,6 +15,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   searchQuery: any;
   routeSub: any;
   artistsSub: any;
+  loading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +30,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
       console.log(params.q);
       this.artistsSub = this.musicService.searchArtists(params.q).subscribe(
         (data) => {
-          console.log(data.artists.items[0]);
           /** Popularity is track-based and a measure of how many plays a track
            * received and how recent those plays are. Then artist popularity is derived from that.
            * So it makes a good property to use for sorting. source:
@@ -41,8 +41,15 @@ export class SearchResultComponent implements OnInit, OnDestroy {
               (a: { popularity: string }, b: { popularity: string }) =>
                 a.popularity < b.popularity
             );
+          if (this.results) {
+              this.loading = false;
+            }
+          
         },
-        (error) => console.log(console.log('Handle bad request'))
+        (error) => {
+          console.log(console.error('Invalid request.'));
+          this.loading = false;
+        }
       );
     });
   }

@@ -25,8 +25,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   }
 
   handleRemoveClick(id: string): void {
-    this.musicService.removeFromFavorites(id);
-    this.favouriteSub = this.musicService.getFavorites().subscribe((data) => {
+    this.favouriteSub = this.musicService.removeFromFavorites(id).subscribe((data) => {
       this.favourites = data.tracks;
     });
   }
