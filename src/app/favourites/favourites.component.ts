@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Track } from 'src/model/track.model';
+import { Track } from '../model/track.model';
 import { MusicDataService } from '../services/music-data.service';
 
 @Component({

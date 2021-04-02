@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Artist } from 'src/model/artist.model';
+import { Artist } from '../model/artist.model';
 
 import { MusicDataService } from '../services/music-data.service';
 import { UtilsService } from '../services/utils.service';

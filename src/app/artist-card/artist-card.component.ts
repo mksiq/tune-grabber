@@ -1,5 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Artist } from 'src/model/artist.model';
+import { Artist } from '../model/artist.model';
 import { UtilsService } from '../services/utils.service';
 
 @Component({

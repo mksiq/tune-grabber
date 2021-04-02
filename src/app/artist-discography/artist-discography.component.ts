@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Album } from 'src/model/album.model';
-import { Artist } from 'src/model/artist.model';
+import { Album } from '../model/album.model';
+import { Artist } from '../model/artist.model';
 import { MusicDataService } from '../services/music-data.service';
 
 @Component({

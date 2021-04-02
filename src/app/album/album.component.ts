@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Album } from 'src/model/album.model';
+import { Album } from '../model/album.model';
 import { MusicDataService } from '../services/music-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UtilsService } from '../services/utils.service';
