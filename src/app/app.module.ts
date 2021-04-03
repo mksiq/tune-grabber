@@ -29,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
-import { RegisterComponentComponent } from './register-component/register-component.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { RegisterComponentComponent } from './register-component/register-compon
     SearchResultComponent,
     FavouritesComponent,
     ArtistCardComponent,
-    RegisterComponentComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
