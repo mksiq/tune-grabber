@@ -14,6 +14,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
   album?: Album;
   albumSub: any;
   routeSub: any;
+  musicSub: any;
   loading: boolean = true;
 
   constructor(
@@ -47,18 +48,35 @@ export class AlbumComponent implements OnInit, OnDestroy {
 
   addToFavorites(trackID: string): void {
     console.log('clicked' + trackID);
-    if (this.musicService.addToFavorites(trackID)) {
-      this.snackBar.open('Adding to Favourites...', 'Done', {
-        duration: 1500,
-      });
-    } else {
-      this.snackBar.open(
-        'Sorry, you reached max number for favourite tracks (50).',
-        'Done',
-        {
+    this.musicSub = this.musicService.addToFavourites(trackID).subscribe(
+      () => {
+        this.snackBar.open('Adding to Favourites...', 'Done', {
           duration: 1500,
-        }
-      );
-    }
+        });
+      },
+      (error) => {
+        console.log(error)
+        this.snackBar.open(
+          'Sorry, you reached max number for favourite tracks (50).',
+          'Done',
+          {
+            duration: 1500,
+          }
+        );
+      }
+    );
+    // if (this.musicService.addToFavourites(trackID)) {
+    //   this.snackBar.open('Adding to Favourites...', 'Done', {
+    //     duration: 1500,
+    //   });
+    // } else {
+    //   this.snackBar.open(
+    //     'Sorry, you reached max number for favourite tracks (50).',
+    //     'Done',
+    //     {
+    //       duration: 1500,
+    //     }
+    //   );
+    // }
   }
 }
