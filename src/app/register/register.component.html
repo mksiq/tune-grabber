@@ -2,8 +2,9 @@
   <mat-card-content>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <h2>Register</h2>
-      <mat-error *ngIf="warning">{{warning}}</mat-error><br />
-      <mat-form-field class="full-width-warning}}t">
+      <mat-error *ngIf="warning">{{ warning }}</mat-error
+      ><br />
+      <mat-form-field class="full-width-warning">
         <input
           matInput
           placeholder="User Name"
@@ -28,7 +29,9 @@
           [(ngModel)]="registerUser.password"
           #password="ngModel"
         />
-        <mat-error class="ng-touched"*ngIf="password.errors?.required">Please provide a valid password</mat-error> </mat-form-field
+        <mat-error class="ng-touched" *ngIf="password.errors?.required"
+          >Please provide a valid password</mat-error
+        > </mat-form-field
       ><br />
       <mat-form-field class="full-width-input">
         <input
@@ -40,17 +43,23 @@
           #password2="ngModel"
           required
         />
-        <mat-error class="ng-touched" *ngIf="password2.errors?.required">Please provide a valid password</mat-error> </mat-form-field
+        <mat-error class="ng-touched" *ngIf="password2.errors?.required"
+          >Please provide a valid password</mat-error
+        > </mat-form-field
       ><br />
-      <button mat-raised-button id="registration-button" type="submit" *ngIf="!success" [disabled]="loading" >
+      <button
+        mat-raised-button
+        id="registration-button"
+        type="submit"
+        *ngIf="!success"
+        [disabled]="loading"
+      >
         <mat-icon>account_box</mat-icon>
         <span>&nbsp;&nbsp;&nbsp;Register</span>
       </button>
     </form>
   </mat-card-content>
-  <div *ngIf="loading"> 
-    Processing Request
-  </div>
+  <div *ngIf="loading">Processing Request</div>
   <div class="success" *ngIf="success">
     Registration Successful. Proceed to<br /><br />
     <a mat-raised-button color="accent">

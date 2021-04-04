@@ -39,8 +39,6 @@ export class AuthService {
   }
 
   register(user: RegisterUser): Observable<any> {
-    console.log("Inside service")
-    console.log(user)
     return this.http.post<any>(`${environment.userAPIBase}register`, user);
   }
 }

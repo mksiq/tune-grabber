@@ -15,7 +15,6 @@ export class FavouritesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.favouriteSub = this.musicService.getFavorites().subscribe((data) => {
-      console.log(data);
       this.favourites = data.tracks;
     });
   }
@@ -25,8 +24,10 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   }
 
   handleRemoveClick(id: string): void {
-    this.favouriteSub = this.musicService.removeFromFavorites(id).subscribe((data) => {
-      this.favourites = data.tracks;
-    });
+    this.favouriteSub = this.musicService
+      .removeFromFavorites(id)
+      .subscribe((data) => {
+        this.favourites = data.tracks;
+      });
   }
 }

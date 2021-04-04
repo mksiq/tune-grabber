@@ -27,7 +27,6 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.params.subscribe((params) => {
       this.artistSub = this.musicService.getArtistById(params.id).subscribe(
         (data) => {
-          console.log(data);
           this.artist = data;
           if (this.artist) {
             this.loading = false;

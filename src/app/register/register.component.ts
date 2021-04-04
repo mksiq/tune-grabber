@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RegisterUser } from '../model/registerUser.model';
 import { AuthService } from '../services/auth-service.service';
@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth-service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registerUser: RegisterUser = { userName: '', password: '', password2: '' };
   warning: string = '';
   success: boolean = false;
@@ -20,29 +20,32 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(f: NgForm): void {
+    if (
+      this.registerUser.password &&
+      this.registerUser.password == this.registerUser.password2
+    ) {
+      console.log('are equal');
 
-    console.log("clicked")
-    if (this.registerUser.password && this.registerUser.password == this.registerUser.password2) {
-      console.log("are equal")
-            
       this.loading = true;
       this.authSub = this.authService.register(this.registerUser).subscribe(
         () => {
           this.success = true;
           this.loading = false;
           this.warning = '';
-          console.log("clicked and success")
         },
         (error) => {
-          console.log("clicked and error")
           this.success = false;
           this.loading = false;
           this.warning = error.error.message;
-          console.log(error)
+          console.log(error);
         }
       );
     } else {
       this.warning = 'Passwords do not match.';
     }
+  }
+
+  ngOnDestroy(): void {
+    this.authSub.unsubscribe();
   }
 }
