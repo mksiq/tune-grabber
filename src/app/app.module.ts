@@ -30,6 +30,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { RegisterComponent } from './register/register.component';
     FavouritesComponent,
     ArtistCardComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
