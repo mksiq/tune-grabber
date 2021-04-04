@@ -86,7 +86,7 @@ export class MusicDataService {
       .delete<[String]>(`${environment.userAPIBase}user/favourites/${id}`)
       .pipe(
         mergeMap((favouritesArray) => {
-          if (favouritesArray) {
+          if (favouritesArray.length > 0) {
             let ids: string = [...favouritesArray].join(',');
             return this.spotifyToken.getBearerToken().pipe(
               mergeMap((token) => {
@@ -118,6 +118,7 @@ export class MusicDataService {
               })
             );
           }
+          console.log('empty')
           return new Observable((o) => o.next({ tracks: [] }));
         })
       );

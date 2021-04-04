@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.success = false;
           this.loading = false;
           this.warning = error.error.message;
-          console.log(error);
         }
       );
     } else {

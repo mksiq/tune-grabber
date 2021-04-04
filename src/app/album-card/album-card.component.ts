@@ -24,7 +24,7 @@ export class AlbumCardComponent implements OnInit {
   onResize() {
     if (window.innerWidth < 622) this.cardSize = '600px';
     else if (window.innerWidth < 1000) this.cardSize = '250px';
-    else this.cardSize = '280px';
+    else this.cardSize = '220px';
     console.log(this.cardSize);
   }
 }
