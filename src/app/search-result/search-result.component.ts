@@ -36,10 +36,10 @@ export class SearchResultComponent implements OnInit, OnDestroy {
            *  https://community.spotify.com/t5/Content-Questions/Artist-popularity/td-p/4415259
            */
           this.results = data.artists?.items
-            .filter((artist: Artist) => artist.images.length > 0)
+            .filter((artist: Artist) => artist.images? artist.images.length > 0 : false)
             .sort(
-              (a: { popularity: string }, b: { popularity: string }) =>
-                a.popularity < b.popularity
+              (a, b) =>
+              b.popularity - a.popularity
             );
           if (this.results) {
               this.loading = false;

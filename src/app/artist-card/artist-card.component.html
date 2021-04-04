@@ -2,8 +2,8 @@
   <mat-card-header [style.min-height]="'60px'">
     <mat-card-title>{{ artist.name }}</mat-card-title>
   </mat-card-header>
-  <img
-    *ngIf="artist.images[0].url"
+  <img 
+    *ngIf="artist.images"
     [routerLink]="'/artist/' + artist.id"
     mat-card-image
     class="album-cover"
@@ -13,8 +13,8 @@
     [style.max-height]="'250px'"
     [style.min-height]="'250px'"
   />
-  <mat-card-content>
-    <strong>Followers: </strong>{{ artist.followers.total.toLocaleString()
+  <mat-card-content *ngIf="artist.followers && artist.followers.total">
+    <strong >Followers: </strong>{{ artist.followers.total.toLocaleString()
     }}<br />
     <strong>Popularity: </strong>{{ artist.popularity }}
   </mat-card-content>

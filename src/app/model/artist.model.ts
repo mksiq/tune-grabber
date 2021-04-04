@@ -6,10 +6,10 @@ export class Artist {
   id: string = '';
   type: string = '';
   uri: string = '';
-  popularity: number = 0;
-  followers: { href: string; total: number } = { href: '', total: 0 };
-  genres: Array<string> = [];
-  images: Array<Image> = [];
+  popularity?: number = 0;
+  followers?: { href: string | null; total: number } = { href: '', total: 0 };
+  genres?: Array<string> = [];
+  images?: Array<Image> = [];
 
   constructor() {}
 }
