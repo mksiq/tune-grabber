@@ -19,20 +19,30 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(f: NgForm){
-    if(this.registerUser.password == this.registerUser.password2) {
+  onSubmit(f: NgForm): void {
+
+    console.log("clicked")
+    if (this.registerUser.password && this.registerUser.password == this.registerUser.password2) {
+      console.log("are equal")
+            
       this.loading = true;
-      this.authSub = this.authService.register(this.registerUser).subscribe( () => {
-        this.success = true;
-        this.loading = false;
-        this.warning = '';
-      }, (error) => {
-        this.success = false;
-        this.loading = false;
-        this.warning = error.console.error.message;
-      });
+      this.authSub = this.authService.register(this.registerUser).subscribe(
+        () => {
+          this.success = true;
+          this.loading = false;
+          this.warning = '';
+          console.log("clicked and success")
+        },
+        (error) => {
+          console.log("clicked and error")
+          this.success = false;
+          this.loading = false;
+          this.warning = error.error.message;
+          console.log(error)
+        }
+      );
     } else {
-      this.warning = 'Passwords do not match.'
+      this.warning = 'Passwords do not match.';
     }
   }
 }

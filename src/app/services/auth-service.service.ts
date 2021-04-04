@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<any>(`${environment.userAPIBase}/login`, user);
+    return this.http.post<any>(`${environment.userAPIBase}login`, user);
   }
 
   logout(): void {
@@ -39,6 +39,8 @@ export class AuthService {
   }
 
   register(user: RegisterUser): Observable<any> {
-    return this.http.post<any>(`${environment.userAPIBase}/register`, user);
+    console.log("Inside service")
+    console.log(user)
+    return this.http.post<any>(`${environment.userAPIBase}register`, user);
   }
 }

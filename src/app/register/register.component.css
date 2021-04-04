@@ -10,3 +10,14 @@ mat-form-field {
   text-align: center;
   padding-top: 10px;
 }
+
+#registration {
+  color: rgb(251, 253, 230) !important;
+  border-radius: 10px !important;
+  background: #312d52 !important;
+  box-shadow: 20px 20px 60px #272342, -20px -20px 60px #352f5a !important;
+}
+
+#registration-button {
+  background-color: #d7263d!important;
+}
