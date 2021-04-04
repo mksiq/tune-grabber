@@ -34,7 +34,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
           }
         },
         (error) => {
-          console.log(console.error('Invalid album id.'));
+          console.error('Invalid album id.');
           this.loading = false;
         }
       );

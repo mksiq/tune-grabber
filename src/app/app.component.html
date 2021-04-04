@@ -1,7 +1,7 @@
 <div class="navbar-container" class="main">
   <!-- Top navbar -->
   <mat-toolbar class="navbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="token">
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -11,9 +11,9 @@
 
     <span class="navbar-spacer"></span>
 
-    <button mat-button [matMenuTriggerFor]="userMenu">
+    <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="token" >
       <mat-icon>person</mat-icon>
-      <span fxShow fxHide.xs> Maickel Siqueira </span>
+      <span fxShow fxHide.xs> {{token.userName}} </span>
     </button>
     <mat-menu
       #userMenu="matMenu"
@@ -21,9 +21,9 @@
       yPosition="above"
       [overlapTrigger]="false"
     >
-      <a mat-menu-item>
+      <a mat-menu-item *ngIf="token">
         <mat-icon>exit_to_app</mat-icon>
-        <span>Log out</span>
+        <span (click)="logout()">Log out</span>
       </a>
     </mat-menu>
   </mat-toolbar>
@@ -33,7 +33,7 @@
     <mat-sidenav
       class="nav"
       #snav
-      [opened]="false"
+      [opened]="token && snav.opened"
       [mode]="'side'"
       [fixedInViewport]="true"
       fixedTopGap="56"

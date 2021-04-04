@@ -10,14 +10,16 @@ import { NewReleasesComponent } from './new-releases/new-releases.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { GuardAuthService } from './services/guard-auth.service';
+
 
 const routes: Routes = [
-  { path: 'album/:id', component: AlbumComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'album/:id', component: AlbumComponent , canActivate: [GuardAuthService] },
+  { path: 'about', component: AboutComponent , canActivate: [GuardAuthService] },
   { path: 'artist/:id', component: ArtistDiscographyComponent },
-  { path: 'newReleases', component: NewReleasesComponent },
-  { path: 'search', component: SearchResultComponent },
-  { path: 'favourites', component: FavouritesComponent },
+  { path: 'newReleases', component: NewReleasesComponent , canActivate: [GuardAuthService] },
+  { path: 'search', component: SearchResultComponent , canActivate: [GuardAuthService] },
+  { path: 'favourites', component: FavouritesComponent , canActivate: [GuardAuthService] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/newReleases', pathMatch: 'full' },
