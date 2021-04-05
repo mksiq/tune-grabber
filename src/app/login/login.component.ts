@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   onSubmit(f: NgForm): void {
-    if (this.user.password && this.user.userName) {      
+    if (this.user.password && this.user.userName) {
       this.loading = true;
       this.authSub = this.authService.login(this.user).subscribe(
         (message) => {
@@ -40,6 +40,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.authSub.unsubscribe();
+    if (this.authSub) this.authSub.unsubscribe();
   }
 }

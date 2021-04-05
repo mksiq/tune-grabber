@@ -27,12 +27,10 @@
                 ><a [routerLink]="'/artist/' + artist.id">{{ artist.name }}</a
                 >&nbsp;&nbsp;</span
               >
-
               <br />
-
               Album:
-              <a [routerLink]="'/album/' + track.album.id">
-                {{ track.album.name }}</a
+              <a [routerLink]="'/album/' + track.album!.id">
+                {{ track.album!.name }}</a
               ><br />
               <div *ngIf="track.preview_url">
                 <br /><audio controls [src]="track.preview_url"></audio>

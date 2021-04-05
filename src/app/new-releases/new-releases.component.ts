@@ -20,6 +20,6 @@ export class NewReleasesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.releasesSub.unsubscribe();
+    if (this.releasesSub) this.releasesSub.unsubscribe();
   }
 }

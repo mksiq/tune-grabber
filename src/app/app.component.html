@@ -21,9 +21,9 @@
       yPosition="above"
       [overlapTrigger]="false"
     >
-      <a mat-menu-item *ngIf="token">
+      <a mat-menu-item *ngIf="token" (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>
-        <span (click)="logout()">Log out</span>
+        <span>Log out</span>
       </a>
     </mat-menu>
   </mat-toolbar>

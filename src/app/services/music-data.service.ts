@@ -118,7 +118,6 @@ export class MusicDataService {
               })
             );
           }
-          console.log('empty')
           return new Observable((o) => o.next({ tracks: [] }));
         })
       );

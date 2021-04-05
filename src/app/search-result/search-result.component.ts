@@ -36,15 +36,13 @@ export class SearchResultComponent implements OnInit, OnDestroy {
            *  https://community.spotify.com/t5/Content-Questions/Artist-popularity/td-p/4415259
            */
           this.results = data.artists?.items
-            .filter((artist: Artist) => artist.images? artist.images.length > 0 : false)
-            .sort(
-              (a, b) =>
-              b.popularity - a.popularity
-            );
+            .filter((artist: Artist) =>
+              artist.images ? artist.images.length > 0 : false
+            )
+            .sort((a, b) => b.popularity - a.popularity);
           if (this.results) {
-              this.loading = false;
-            }
-          
+            this.loading = false;
+          }
         },
         (error) => {
           console.log(console.error('Invalid request.'));
@@ -55,7 +53,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.routeSub.unsubscribe();
-    this.artistsSub.unsubscribe();
+    if (this.routeSub) this.routeSub.unsubscribe();
+    if (this.artistsSub) this.artistsSub.unsubscribe();
   }
 }

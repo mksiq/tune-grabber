@@ -20,7 +20,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.favouriteSub.unsubscribe();
+    if (this.favouriteSub) this.favouriteSub.unsubscribe();
   }
 
   handleRemoveClick(id: string): void {

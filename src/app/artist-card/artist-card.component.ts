@@ -25,6 +25,5 @@ export class ArtistCardComponent implements OnInit {
     if (window.innerWidth < 622) this.cardSize = '600px';
     else if (window.innerWidth < 1000) this.cardSize = '250px';
     else this.cardSize = '280px';
-    console.log(this.cardSize);
   }
 }

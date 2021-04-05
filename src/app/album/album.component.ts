@@ -42,8 +42,10 @@ export class AlbumComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.routeSub.unsubscribe();
-    this.albumSub.unsubscribe();
+    if(this.routeSub)
+      this.routeSub.unsubscribe();
+    if(this.album)
+      this.albumSub.unsubscribe();
   }
 
   addToFavorites(trackID: string): void {

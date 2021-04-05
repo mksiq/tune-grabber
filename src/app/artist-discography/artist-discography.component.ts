@@ -51,9 +51,9 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.artistSub.unsubscribe();
-    this.albumsSub.unsubscribe();
-    this.routeSub.unsubscribe();
+    if (this.artistSub) this.artistSub.unsubscribe();
+    if (this.albumsSub) this.albumsSub.unsubscribe();
+    if (this.routeSub) this.routeSub.unsubscribe();
   }
 }
 

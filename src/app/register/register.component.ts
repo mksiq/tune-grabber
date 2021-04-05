@@ -24,8 +24,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.registerUser.password &&
       this.registerUser.password == this.registerUser.password2
     ) {
-      console.log('are equal');
-
       this.loading = true;
       this.authSub = this.authService.register(this.registerUser).subscribe(
         () => {
@@ -45,6 +43,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.authSub.unsubscribe();
+    if (this.authSub) this.authSub.unsubscribe();
   }
 }

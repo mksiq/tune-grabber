@@ -30,10 +30,8 @@ export class AppComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationStart) {
         // only read the token on "NavigationStart"
         this.token = this.authService.readToken();
-        console.log(this.token)
       }
-    });
-    
+    });    
   }
 
   handleSearch(f: NgForm): void {
@@ -44,8 +42,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
+    console.log('clicked')
     this.authService.logout();
     this.router.navigate(['/login']);
+    console.log('redirected?')
   }
 
   ngOnDestroy(): void {
