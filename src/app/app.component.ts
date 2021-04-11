@@ -4,7 +4,8 @@
  *   assignment has been copied manually or electronically from any other source (including web sites) or *
  *   distributed to other students.*
  *  *
- *   Name: Maickel Siqueira Student ID: 129337192 Date: 2021-03-27
+ *   Name: Maickel Siqueira Student ID: 129337192 Date: 2021-04-10
+ * Online Link: https://gracious-noyce-ff8332.netlify.app/
  * *********************************************************************************/
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
